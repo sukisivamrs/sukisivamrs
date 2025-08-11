@@ -1,111 +1,683 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Suki Sivam R S</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --violet: #7A3FF2;
+      --pink: #FF5CA8;
+      --dark-bg: #16002c;
+      --neon-dark: #210044;
+      --text-white: #fff;
+      --gradient-main: linear-gradient(90deg, #7A3FF2 0%, #FF5CA8 100%);
+    }
+    html { scroll-behavior: smooth; }
     body {
-      margin: 0;
       font-family: 'Roboto', sans-serif;
-      background-color: #FFFFFF;
-      color: #333;
-    }
-    header {
-      background-color: #0000FF;
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-    }
-    header h1 {
       margin: 0;
-      font-size: 2em;
+      background: var(--dark-bg);
+      color: var(--text-white);
     }
-    header p {
-      font-size: 1.2em;
-      color: white;
+    nav {
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 2.5rem;
+      background: var(--neon-dark);
+      padding: 1.2rem 4vw 1.2rem 4vw;
+      box-shadow: 0 0 12px var(--violet);
+      position: relative;
+      z-index: 100;
     }
-    .container {
-      padding: 20px;
-      max-width: 1000px;
-      margin: auto;
+    nav a {
+      color: var(--violet);
+      font-weight: bold;
+      text-decoration: none;
+      letter-spacing: 1px;
+      font-size: 1.1rem;
+      text-shadow: 0 0 10px var(--violet);
+      transition: color 0.2s, text-shadow 0.2s, background 0.2s;
+      padding: 0.2em 0.7em;
+      border-radius: 7px;
+      background: none;
+      outline: none;
     }
-    section {
-      margin-bottom: 40px;
+    nav a.active,
+    nav a:focus {
+      color: #fff;
+      background: var(--gradient-main);
+      text-shadow: 0 0 14px var(--pink), 0 0 10px var(--violet);
+      box-shadow: 0 0 15px #FF5CA8;
+    }
+    nav a:hover:not(.active) {
+      color: var(--pink);
+      text-shadow: 0 0 18px var(--pink);
+      background: rgba(159,43,255,0.08);
+    }
+    hr {
+      border: none;
+      border-top: 2px solid var(--violet);
+      margin: 40px auto 40px auto;
+      max-width: 700px;
+      box-shadow: 0 0 12px var(--violet);
+    }
+    .home-section {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--dark-bg);
+      position: relative;
+      padding: 0 2vw;
+      gap: 3vw;
+      flex-wrap: wrap;
+    }
+    .home-left {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-start;
+      z-index: 2;
+      min-width: 290px;
+      max-width: 480px;
+    }
+    .greeting {
+      font-size: 1.2rem;
+      color: var(--pink);
+      margin-bottom: 0.7em;
+      text-shadow: 0 0 8px var(--pink);
+    }
+    .home-name {
+      font-size: 2.5rem;
+      color: var(--violet);
+      font-weight: 700;
+      text-shadow: 0 0 10px var(--violet);
+      margin: 0.1em 0 0 0;
+      letter-spacing: 1.5px;
+    }
+    .home-title {
+      font-size: 1.3rem;
+      color: var(--pink);
+      text-shadow: 0 0 8px var(--pink);
+      font-weight: 500;
+      margin: 0.35em 0 1.2em 0;
+      letter-spacing: 0.5px;
+    }
+    .contact-icons-row {
+      display: flex;
+      gap: 2.2rem;
+      justify-content: flex-start;
+      align-items: center;
+      margin: 1.3em 0 0 0;
+    }
+    .contact-icon-block i {
+      font-size: 2rem;
+      color: var(--violet);
+      text-shadow: 0 0 12px var(--violet);
+      filter: drop-shadow(0 0 7px var(--pink));
+      transition: color 0.2s, filter 0.2s;
+    }
+    .contact-icon-block i:hover {
+      color: var(--pink);
+      text-shadow: 0 0 16px var(--pink);
+    }
+    .home-right {
+      flex: 1;
+      min-width: 270px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      z-index: 2;
+    }
+    .profile-droplets {
+      position: relative;
+      width: 280px;
+      height: 300px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .droplet {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(0.5px);
+      opacity: 0.6;
+      pointer-events: none;
+      z-index: 1;
+      animation: droplet-float 5s infinite alternate;
+    }
+    @keyframes droplet-float {
+      0% { transform: translateY(0px);}
+      100% { transform: translateY(-20px);}
+    }
+    .droplet1 {
+      width: 150px; height: 150px;
+      left: 0; top: 40px;
+      background: radial-gradient(circle at 60% 60%, var(--violet) 40%, transparent 80%);
+      box-shadow: 0 0 60px 24px var(--violet);
+      z-index: 1;
+      animation-delay: 0s;
+    }
+    .droplet2 {
+      width: 95px; height: 95px;
+      left: 120px; top: 0;
+      background: radial-gradient(circle at 40% 40%, var(--pink) 45%, transparent 90%);
+      box-shadow: 0 0 32px 8px var(--pink);
+      z-index: 1;
+      animation-delay: .8s;
+    }
+    .droplet3 {
+      width: 70px; height: 70px;
+      left: 185px; top: 120px;
+      background: radial-gradient(circle at 60% 60%, var(--violet) 60%, transparent 100%);
+      box-shadow: 0 0 22px 8px var(--violet);
+      z-index: 1;
+      animation-delay: 1.3s;
+    }
+    .droplet4 {
+      width: 36px; height: 36px;
+      left: 210px; top: 200px;
+      background: radial-gradient(circle at 50% 50%, var(--pink) 75%, transparent 100%);
+      box-shadow: 0 0 12px 3px var(--pink);
+      z-index: 1;
+      animation-delay: 2s;
+    }
+    .profile-pic-main {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid var(--violet);
+      box-shadow: 0 0 32px 10px var(--violet), 0 0 20px 6px var(--pink) inset;
+      z-index: 10;
+      background: #20002e;
+      position: relative;
     }
     h2 {
-      border-bottom: 2px solid #FFFFFF;
-      padding-bottom: 5px;
+      margin-top: 0;
+      color: var(--pink);
+      letter-spacing: 1px;
+      text-align: center;
+      font-size: 2rem;
+      text-shadow: none !important;
+      filter: none !important;
     }
-    ul {
-      list-style: none;
-      padding: 0;
+    .intro {
+      font-size: 1.1rem;
+      color: var(--text-white);
+      text-align: center;
+      margin: 0 0 2.2rem 0;
+      text-shadow: none;
+      filter: none;
     }
-    ul li {
-      margin-bottom: 10px;
+    .action-buttons-row {
+      display: flex;
+      justify-content: center;
+      gap: 1.3rem;
+      margin-bottom: 2.5rem;
+      flex-wrap: wrap;
     }
-    .contact a {
-      color: #0077cc;
+    .pill-btn {
+      display: flex;
+      align-items: center;
+      border: none;
+      outline: none;
+      border-radius: 999px;
+      font-size: 1.05em;
+      font-weight: 600;
+      padding: 0.52em 1.8em;
+      cursor: pointer;
+      transition: background 0.15s, box-shadow 0.15s, color 0.15s, border 0.15s;
       text-decoration: none;
+      white-space: nowrap;
+      gap: 0.7em;
+      margin: 0;
+      user-select: none;
+      background: transparent;
+      color: #fff;
+      box-shadow: none;
+    }
+    .pill-btn i {font-size: 1.07em;}
+    .pill-btn.active {
+      background: var(--gradient-main);
+      color: #fff;
+      box-shadow: 0 0 22px 6px #FF5CA8;
+      border: none;
+      z-index: 1;
+    }
+    .pill-btn:focus {
+      outline: 2px solid var(--pink);
+    }
+    .pill-btn:hover:not(.active) {
+      color: #fff;
+      text-shadow: 0 0 10px #fff;
+      filter: brightness(1.14);
+    }
+    .pill-btn i.fa-download {margin-left:0.4em; font-size:0.93em;}
+    .pill-btn i.fa-code {margin-right:0.4em; font-size:0.97em;}
+    .projects-split {
+      display: flex;
+      gap: 2.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .project-pane {
+      flex: 1 1 340px;
+      background: transparent;
+      border-radius: 10px;
+      border-left: 4px solid var(--pink);
+      padding: 1.1rem 1.2rem 1.1rem 1.6rem;
+      margin-bottom: 1.5rem;
+      min-width: 280px;
+      max-width: 440px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.1rem;
+      box-shadow: none;
+    }
+    .project-title {
+      color: var(--violet);
+      font-size: 1.13em;
+      font-weight: bold;
+      text-shadow: 0 0 8px var(--violet);
+      margin-bottom: 0.3em;
+    }
+    .project-desc, .project-skills {
+      color: var(--text-white);
+      font-size: 1em;
+      margin-bottom: 0.5em;
+      text-shadow: none !important;
+      filter: none !important;
+    }
+    .project-skills {
+      color: var(--pink);
+      font-size: 0.97em;
+      font-style: italic;
+      margin-bottom: 0.2em;
+    }
+    .tabs {
+      display: flex;
+      gap: 1.3rem;
+      margin-bottom: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .skill-pill-btn {
+      display: flex;
+      align-items: center;
+      border: none;
+      outline: none;
+      border-radius: 999px;
+      font-size: 1.02em;
+      font-weight: 600;
+      padding: 0.52em 1.5em;
+      cursor: pointer;
+      transition: background 0.15s, box-shadow 0.15s, color 0.15s, border 0.15s;
+      text-decoration: none;
+      white-space: nowrap;
+      gap: 0.55em;
+      margin: 0;
+      user-select: none;
+      background: transparent;
+      color: #fff;
+      box-shadow: none;
+    }
+    .skill-pill-btn i {font-size: 1.05em; margin-right: 0.4em;}
+    .skill-pill-btn.active {
+      background: var(--gradient-main);
+      color: #fff;
+      box-shadow: 0 0 22px 6px #FF5CA8;
+      border: none;
+      z-index: 1;
+      text-shadow: none;
+    }
+    .skill-pill-btn:focus {
+      outline: 2px solid var(--pink);
+    }
+    .skill-pill-btn:hover:not(.active) {
+      color: #fff;
+      text-shadow: 0 0 10px #fff;
+      filter: brightness(1.14);
+    }
+    .tab-content {
+      display: none;
+      animation: fadeIn 0.3s;
+      min-height: 70px;
+      justify-content: center;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    .skills-icons-row {
+      display: flex;
+      gap: 2.3rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      padding: 1.2rem 0;
+    }
+    .skill-icon-block {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-width: 64px;
+      margin-bottom: .6rem;
+    }
+    .skill-icon-block i,
+    .skill-icon-block img {
+      font-size: 2.5rem;
+      color: var(--violet);
+      text-shadow: 0 0 12px var(--violet), 0 0 18px var(--pink);
+      margin-bottom: 0.3em;
+      filter: drop-shadow(0 0 9px var(--pink));
+    }
+    .skill-icon-block img {
+      width: 2.5rem; height: 2.5rem; object-fit: contain;
+      mix-blend-mode: lighten;
+    }
+    .skill-label {
+      font-size: 0.98em;
+      color: var(--text-white);
+      text-align: center;
+      margin-top: 0.1em;
+      text-shadow: none;
+      filter: none;
+    }
+    .contact-section-icons-row {
+      display: flex;
+      gap: 2.5rem;
+      justify-content: center;
+      align-items: center;
+      padding: 1.4rem 0 0.6rem 0;
+    }
+    .contact-section-icons-row .contact-icon-block i {
+      font-size: 2.3rem;
     }
     footer {
-      background-color: #0000FF;
-      color: #fff;
+      margin-top: 48px;
+      padding: 1.2em 0 1em 0;
       text-align: center;
-      padding: 20px;
-      font-size: 0.9em;
+      color: var(--violet);
+      font-size: 1em;
+      background: #210044;
+      letter-spacing: 1px;
+      font-weight: 500;
+      border-top: 2px solid var(--pink);
+      text-shadow: 0 0 12px var(--violet);
+      user-select: none;
+    }
+    @media (max-width: 1000px) {
+      .home-section { flex-direction: column; text-align: center; }
+      .home-left, .home-right { align-items: center; justify-content: center; }
+      .profile-droplets { margin-top: 2rem; }
+      .projects-split { flex-direction: column; gap: 1.5rem; }
+      .about-buttons-row, .tabs, .action-buttons-row { gap: 0.7rem; }
+    }
+    @media (max-width: 600px) {
+      .home-name { font-size: 1.35rem; }
+      .home-title { font-size: 1.02rem; }
+      .profile-droplets { width: 120px; height: 130px; }
+      .profile-pic-main { width: 90px; height: 90px; }
+      .skills-icons-row, .contact-section-icons-row, .contact-icons-row { gap: 1.2rem; }
+      nav { gap: 1.1rem; padding: 1.2rem 0.5rem;}
+      .project-pane { padding-left: 1rem; padding-right: 1rem; }
+      hr { margin: 30px auto 30px auto;}
+      .action-btn, .pill-btn, .skill-pill-btn { font-size: 0.97em; padding: 0.7em 1.2em;}
     }
   </style>
 </head>
 <body>
+  <!-- NAVIGATION -->
+  <nav id="main-nav">
+    <a href="#home" class="active">Home</a>
+    <a href="#about" id="about-link">About Me</a>
+    <a href="#skillset">Skillset</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
-  <header>
-    <h1>Suki Sivam R S</h1>
-    <p>AWS Cloud Engineer || DevOps Engineer</p>
-  </header>
+  <!-- HOME SECTION -->
+  <section class="home-section" id="home">
+    <div class="home-left">
+      <div class="greeting">👋 Hello!</div>
+      <div class="home-name">Suki Sivam R S</div>
+      <div class="home-title">AWS Cloud Engineer & DevOps Engineer</div>
+      <div class="contact-icons-row">
+        <span class="contact-icon-block">
+          <a href="mailto:sukisivamrs@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Gmail"><i class="fa-solid fa-envelope"></i></a>
+        </span>
+        <span class="contact-icon-block">
+          <a href="https://www.linkedin.com/in/suki-sivam-r-s/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        </span>
+        <span class="contact-icon-block">
+          <a href="https://github.com/sukisivamrs" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        </span>
+        <span class="contact-icon-block">
+          <a href="https://x.com/sukisivamrs" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        </span>
+        <span class="contact-icon-block">
+          <a href="https://instagram.com/yourprofile" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </span>
+      </div>
+    </div>
+    <div class="home-right">
+      <div class="profile-droplets">
+        <span class="droplet droplet1"></span>
+        <span class="droplet droplet2"></span>
+        <span class="droplet droplet3"></span>
+        <span class="droplet droplet4"></span>
+        <img src="profile.jpg" alt="Profile Picture" class="profile-pic-main" />
+      </div>
+    </div>
+  </section>
 
-  <div class="container">
-    
-    <section>
-      <h2>About Me</h2>
-      <p>
-        I’m an experienced AWS Cloud and DevOps Engineer with 3+ years of expertise in designing, migrating, and managing scalable cloud infrastructure. I specialize in automating CI/CD pipelines, deploying applications on both Linux and Windows servers, and maintaining secure and stable development environments.
-      </p>
-    </section>
+  <hr>
 
-    <section>
-      <h2>Skills</h2>
-      <ul>
-        <li>🛠️ AWS (EC2, S3, IAM, VPC, CDN, RDS, R53, Security Hub, Migration)</li>
-        <li>🔧 CI/CD: Jenkins, Tomcat, Gradle, Bash, CVC, SAST, DAST</li>
-        <li>📜 Infrastructure as Code: Terraform, CloudFormation</li>
-        <li>🐧 OS: Linux, Windows</li>
-        <li>📈 Monitoring: CloudWatch</li>
-      </ul>
-    </section>
+  <!-- ABOUT ME & PROJECTS -->
+  <section id="about">
+    <h2>About Me</h2>
+    <div class="intro">
+      I am an AWS Cloud & DevOps Engineer with 3+ years of experience in designing, implementing, and automating scalable cloud infrastructure. I specialize in DevOps practices, CI/CD, containerization, and driving operational excellence.
+    </div>
+    <div class="action-buttons-row">
+      <a class="pill-btn active" id="resume-btn" href="resume.pdf" download rel="noopener noreferrer">
+        Resume <i class="fa-solid fa-download"></i>
+      </a>
+      <a class="pill-btn" id="projects-btn" href="#about-projects" rel="noopener noreferrer">
+        <i class="fa-solid fa-code"></i> Projects
+      </a>
+    </div>
+    <div id="about-projects"></div>
+    <div class="projects-split">
+      <div class="project-pane">
+        <div class="project-title">LGC BAU INFRASTRUCTURE</div>
+        <div class="project-desc">
+          Contributed to the end-to-end migration of workloads from AWS legacy accounts to a centralized AWS Organization with a multi-account architecture. Executed large-scale migration of compute, database and content delivery resources including EC2 (Windows/Linux), RDS, CloudFront, EBS Volumes and backups, maintaining high availability and data integrity. Provided comprehensive infrastructure support for client environments including resource provisioning, updating, optimization and decommissioning. Collaborated with cross-functional teams to troubleshoot post-migration issues, improve automation and ensure high availability and performance. Actively monitored AWS Security Hub reports to identify vulnerabilities and misconfigurations across accounts, ensuring timely remediation and improved cloud security standards. Performed monthly OS patching and security updates on both Windows and Linux EC2 servers to ensure system security and compliance.
+        </div>
+        <div class="project-skills">Skills: AWS Core Services, AWS migration, Linux, Bash & Shell Scripting, Terraform</div>
+      </div>
+      <div class="project-pane">
+        <div class="project-title">ONE AUTOMATION ECOSYSTEM</div>
+        <div class="project-desc">
+          Worked on the One Automation Ecosystem (OAE), a Java-based web application designed to automate functional, accessibility, compatibility and visual testing processes. Served as a DevOps Engineer, responsible for checking out source code from TortoiseSVN, building artifacts using Gradle and deploying WAR files on Apache Tomcat servers across both Windows and Linux environments. Built and deployed a continuous integration and delivery pipeline using Jenkins to automate previously manual tasks, improving productivity and accuracy. Executed CVC, SAST, DAST scans; generated compliance reports and shared them with stakeholders for vulnerability assessment and remediation (only for major versions). Managed deployment of the OAE application across 50+ client environments, ensuring smooth integration, performance and stability on various server configurations. Provided operational support across DEV, QA, Testing and PROD environments, enabling reliable and efficient CI/CD practices.
+        </div>
+        <div class="project-skills">Skills: DevOps, Jenkins, Linux, AWS, Gradle, Tomcat, TortoiseSVN, SAST, DAST, CI/CD, Automation</div>
+      </div>
+    </div>
+  </section>
 
-    <section>
-      <h2>Experience Highlights</h2>
-      <ul>
-        <li><strong>LGC BAU Infrastructure, TCS</strong> – Contributed to the end-to-end migration of workloads from AWS legacy accounts to a centralized AWS Organization with a multi-account architecture. Executed large-scale migration of compute, database, and content delivery resources including EC2 (Windows/Linux), RDS, CloudFront, EBS Volumes and backups, maintaining high availability and data integrity. Provided comprehensive infrastructure support for client environments including resource provisioning, updating, optimization, and decommissioning. Collaborated with cross-functional teams to troubleshoot post-migration issues, improve automation, and ensure high availability and performance. Actively monitored AWS Security Hub reports to identify vulnerabilities and misconfigurations across accounts, ensuring timely remediation and improved cloud security standards. Performed monthly OS patching and security updates on both Windows and Linux EC2 servers to ensure system security and compliance.</li>
-        <li><strong>One Automation Ecosystem, TCS</strong> – Worked on One Automation Ecosystem (OAE), a Java-based web application designed to automate functional, accessibility, compatibility, and visual testing processes. Served as a DevOps Engineer, responsible for checking out source code from TortoiseSVN, building artifacts using Gradle, and deploying WAR files on Apache Tomcat servers across both Windows and Linux environments. Built and deployed a continuous integration and delivery pipeline using Jenkins to automate previously manual tasks, improving productivity and accuracy. Executed CVC, SAST, DAST scans; generated compliance reports and shared them with stakeholders for vulnerability assessment and remediation (only for major versions). Managed deployment of the OAE application across 50+ client environments, ensuring smooth integration, performance, and stability on various server configurations. Provided operational support across DEV, QA, Testing, and PROD environments, enabling reliable and efficient CI/CD practices.</li>
-        </ul>
-    </section>
+  <hr>
 
-    <section>
-      <h2>Contact</h2>
-      <p class="contact">
-        📧 Email: <a href="mailto:sukisivamrs@gmail.com">sukisivamrs@gmail.com</a><br>
-        🔗 LinkedIn: <a href="https://www.linkedin.com/in/suki-sivam-r-s/" target="_blank">suki-sivam-r-s</a>
-      </p>
-    </section>
+  <!-- SKILLSET TABS -->
+  <section id="skillset">
+    <h2>Skillset</h2>
+    <div class="tabs">
+      <button class="skill-pill-btn tab active" onclick="showTab('primary')" id="tab-primary">
+        <i class="fa-solid fa-code"></i> Primary
+      </button>
+      <button class="skill-pill-btn tab" onclick="showTab('secondary')" id="tab-secondary">
+        <i class="fa-solid fa-cube"></i> Secondary
+      </button>
+      <button class="skill-pill-btn tab" onclick="showTab('certifications')" id="tab-certifications">
+        <i class="fa-solid fa-certificate"></i> Certificates
+      </button>
+    </div>
+    <!-- PRIMARY SKILLS ICONS -->
+    <div class="tab-content active" id="primary">
+      <div class="skills-icons-row">
+        <div class="skill-icon-block">
+          <i class="fa-brands fa-aws" title="AWS"></i>
+          <span class="skill-label">AWS</span>
+        </div>
+        <div class="skill-icon-block">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform" title="Terraform">
+          <span class="skill-label">Terraform</span>
+        </div>
+        <div class="skill-icon-block">
+          <i class="fa-brands fa-jenkins" title="Jenkins"></i>
+          <span class="skill-label">Jenkins</span>
+        </div>
+        <div class="skill-icon-block">
+          <i class="fa-brands fa-linux" title="Linux"></i>
+          <span class="skill-label">Linux</span>
+        </div>
+        <div class="skill-icon-block">
+          <i class="fa-solid fa-terminal" title="Shell/Bash"></i>
+          <span class="skill-label">Bash</span>
+        </div>
+      </div>
+    </div>
+    <!-- SECONDARY SKILLS ICONS -->
+    <div class="tab-content" id="secondary">
+      <div class="skills-icons-row">
+        <div class="skill-icon-block">
+          <i class="fa-brands fa-docker" title="Docker"></i>
+          <span class="skill-label">Docker</span>
+        </div>
+        <div class="skill-icon-block">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" title="Kubernetes">
+          <span class="skill-label">Kubernetes</span>
+        </div>
+        <div class="skill-icon-block">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg" alt="Ansible" title="Ansible">
+          <span class="skill-label">Ansible</span>
+        </div>
+        <div class="skill-icon-block">
+          <i class="fa-brands fa-git-alt" title="Git"></i>
+          <span class="skill-label">Git</span>
+        </div>
+        <div class="skill-icon-block">
+          <i class="fa-brands fa-github" title="GitHub"></i>
+          <span class="skill-label">GitHub</span>
+        </div>
+        <div class="skill-icon-block">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/elastic/elastic-original.svg" alt="ELK" title="ELK Stack">
+          <span class="skill-label">ELK</span>
+        </div>
+        <div class="skill-icon-block">
+          <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original.svg" alt="CloudWatch" title="CloudWatch">
+          <span class="skill-label">CloudWatch</span>
+        </div>
+      </div>
+    </div>
+    <!-- CERTIFICATIONS ICONS -->
+    <div class="tab-content" id="certifications">
+      <div class="skills-icons-row">
+        <div class="skill-icon-block">
+          <img src="https://d1.awsstatic.com/training-and-certification/Certification%20Badges/AWS-Certified-Solutions-Architect-Associate_badge.3f7c532bfc5c1758c0fa0c4f0cbb7a1b684c4f09.png" alt="AWS SAA" title="AWS Certified Solutions Architect – Associate">
+          <span class="skill-label" style="max-width:80px">AWS SAA</span>
+        </div>
+        <div class="skill-icon-block">
+          <img src="https://d1.awsstatic.com/training-and-certification/Certification%20Badges/AWS-Certified-Cloud-Practitioner_badge.7d91b0b2c3b9b1a2c8cbbd7c26a903b41d1b7d08.png" alt="AWS Cloud Practitioner" title="AWS Certified Cloud Practitioner">
+          <span class="skill-label" style="max-width:80px">Cloud Practitioner</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  </div>
+  <hr>
+
+  <!-- CONTACT ICONS SECTION -->
+  <section id="contact">
+    <h2>Contact Details</h2>
+    <div class="contact-section-icons-row">
+      <span class="contact-icon-block">
+        <a href="mailto:sukisivamrs@gmail.com" target="_blank" rel="noopener noreferrer" aria-label="Gmail"><i class="fa-solid fa-envelope"></i></a>
+      </span>
+      <span class="contact-icon-block">
+        <a href="" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+      </span>
+      <span class="contact-icon-block">
+        <a href="https://github.com/sukisivamrs" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fab fa-github"></i></a>
+      </span>
+      <span class="contact-icon-block">
+        <a href="https://x.com/sukisivamrs" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+      </span>
+      <span class="contact-icon-block">
+        <a href="https://instagram.com/sukisivamrs" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+      </span>
+    </div>
+  </section>
 
   <footer>
-    &copy; 2025 Suki Sivam R S. All rights reserved.
+    © Suki Sivam R S - 2025
   </footer>
+  <script>
+    // Header navigation highlighting
+    (function() {
+      const navLinks = document.querySelectorAll('nav a');
+      function setActiveNav() {
+        const hash = window.location.hash ? window.location.hash : "#home";
+        navLinks.forEach(link => {
+          if (link.getAttribute('href') === hash) {
+            link.classList.add('active');
+          } else {
+            link.classList.remove('active');
+          }
+        });
+      }
+      navLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+          if (this.hash) {
+            e.preventDefault();
+            document.querySelector(this.hash).scrollIntoView({behavior: 'smooth'});
+            history.replaceState(null, null, this.hash);
+            setActiveNav();
+          }
+        });
+      });
+      window.addEventListener('hashchange', setActiveNav);
+      setActiveNav();
+    })();
 
+    // About Me Resume/Projects pills: only one active
+    (function() {
+      const resumeBtn = document.getElementById('resume-btn');
+      const projectsBtn = document.getElementById('projects-btn');
+      function setActive(btn) {
+        resumeBtn.classList.remove('active');
+        projectsBtn.classList.remove('active');
+        btn.classList.add('active');
+      }
+      resumeBtn.addEventListener('click', function() {
+        setActive(resumeBtn);
+      });
+      projectsBtn.addEventListener('click', function() {
+        setActive(projectsBtn);
+      });
+    })();
+
+    // Skillset tabs: only one active, gradient & glow only when selected
+    function showTab(tabName) {
+      document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+      document.querySelectorAll('.tab-content').forEach(tc => tc.classList.remove('active'));
+      document.querySelector('.tab[onclick="showTab(\''+tabName+'\')"]').classList.add('active');
+      document.getElementById(tabName).classList.add('active');
+    }
+  </script>
 </body>
 </html>
