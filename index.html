@@ -115,16 +115,19 @@
       align-items: center;
       margin: 1.3em 0 0 0;
     }
+    /* Remove shadow from contact icons */
     .contact-icon-block i {
       font-size: 2rem;
       color: var(--violet);
-      text-shadow: 0 0 12px var(--violet);
-      filter: drop-shadow(0 0 7px var(--pink));
-      transition: color 0.2s, filter 0.2s;
+      /* Removed all shadow and filter effects */
+      text-shadow: none !important;
+      filter: none !important;
+      transition: color 0.2s;
     }
     .contact-icon-block i:hover {
       color: var(--pink);
-      text-shadow: 0 0 16px var(--pink);
+      /* No text shadow */
+      text-shadow: none !important;
     }
     .home-right {
       flex: 1;
@@ -368,13 +371,15 @@
       min-width: 64px;
       margin-bottom: .6rem;
     }
+    /* Remove icon shadow from skills (primary, secondary, certifications) */
     .skill-icon-block i,
     .skill-icon-block img {
       font-size: 2.5rem;
       color: var(--violet);
-      text-shadow: 0 0 12px var(--violet), 0 0 18px var(--pink);
+      text-shadow: none !important;
+      filter: none !important;
       margin-bottom: 0.3em;
-      filter: drop-shadow(0 0 9px var(--pink));
+      /* No drop shadow */
     }
     .skill-icon-block img {
       width: 2.5rem; height: 2.5rem; object-fit: contain;
@@ -397,6 +402,9 @@
     }
     .contact-section-icons-row .contact-icon-block i {
       font-size: 2.3rem;
+      /* No shadow */
+      text-shadow: none !important;
+      filter: none !important;
     }
     footer {
       margin-top: 48px;
@@ -481,7 +489,7 @@
   <section id="about">
     <h2>About Me</h2>
     <div class="intro">
-      I am an AWS Cloud & DevOps Engineer with 3+ years of experience in designing, implementing, and automating scalable cloud infrastructure. I specialize in DevOps practices, CI/CD, containerization, and driving operational excellence.
+      I am an AWS Cloud & DevOps Engineer with 3+ years of experience in designing, implementing, and automating scalable cloud infrastructure. I specialize in DevOps practices, CI/CD, containerizatio[...]
     </div>
     <div class="action-buttons-row">
       <a class="pill-btn active" id="resume-btn" href="assets/suki_sivam_r_s.pdf" download rel="noopener noreferrer">
@@ -496,14 +504,14 @@
       <div class="project-pane">
         <div class="project-title">LGC BAU INFRASTRUCTURE</div>
         <div class="project-desc">
-          Contributed to the end-to-end migration of workloads from AWS legacy accounts to a centralized AWS Organization with a multi-account architecture. Executed large-scale migration of compute, database and content delivery resources including EC2 (Windows/Linux), RDS, CloudFront, EBS Volumes and backups, maintaining high availability and data integrity. Provided comprehensive infrastructure support for client environments including resource provisioning, updating, optimization and decommissioning. Collaborated with cross-functional teams to troubleshoot post-migration issues, improve automation and ensure high availability and performance. Actively monitored AWS Security Hub reports to identify vulnerabilities and misconfigurations across accounts, ensuring timely remediation and improved cloud security standards. Performed monthly OS patching and security updates on both Windows and Linux EC2 servers to ensure system security and compliance.
+          Contributed to the end-to-end migration of workloads from AWS legacy accounts to a centralized AWS Organization with a multi-account architecture. Executed large-scale migration of compute, [...]
         </div>
         <div class="project-skills">Skills: AWS Core Services, AWS migration, Linux, Bash & Shell Scripting, Terraform</div>
       </div>
       <div class="project-pane">
         <div class="project-title">ONE AUTOMATION ECOSYSTEM</div>
         <div class="project-desc">
-          Worked on the One Automation Ecosystem (OAE), a Java-based web application designed to automate functional, accessibility, compatibility and visual testing processes. Served as a DevOps Engineer, responsible for checking out source code from TortoiseSVN, building artifacts using Gradle and deploying WAR files on Apache Tomcat servers across both Windows and Linux environments. Built and deployed a continuous integration and delivery pipeline using Jenkins to automate previously manual tasks, improving productivity and accuracy. Executed CVC, SAST, DAST scans; generated compliance reports and shared them with stakeholders for vulnerability assessment and remediation (only for major versions). Managed deployment of the OAE application across 50+ client environments, ensuring smooth integration, performance and stability on various server configurations. Provided operational support across DEV, QA, Testing and PROD environments, enabling reliable and efficient CI/CD practices.
+          Worked on the One Automation Ecosystem (OAE), a Java-based web application designed to automate functional, accessibility, compatibility and visual testing processes. Served as a DevOps Engi[...]
         </div>
         <div class="project-skills">Skills: DevOps, Jenkins, Linux, AWS, Gradle, Tomcat, TortoiseSVN, SAST, DAST, CI/CD, Automation</div>
       </div>
@@ -588,11 +596,11 @@
     <div class="tab-content" id="certifications">
       <div class="skills-icons-row">
         <div class="skill-icon-block">
-          <img src="https://d1.awsstatic.com/training-and-certification/Certification%20Badges/AWS-Certified-Solutions-Architect-Associate_badge.3f7c532bfc5c1758c0fa0c4f0cbb7a1b684c4f09.png" alt="AWS SAA" title="AWS Certified Solutions Architect – Associate">
+          <img src="https://d1.awsstatic.com/training-and-certification/Certification%20Badges/AWS-Certified-Solutions-Architect-Associate_badge.3f7c532bfc5c1758c0fa0c4f0cbb7a1b684c4f09.png" alt="AWS [...]
           <span class="skill-label" style="max-width:80px">AWS SAA</span>
         </div>
         <div class="skill-icon-block">
-          <img src="https://d1.awsstatic.com/training-and-certification/Certification%20Badges/AWS-Certified-Cloud-Practitioner_badge.7d91b0b2c3b9b1a2c8cbbd7c26a903b41d1b7d08.png" alt="AWS Cloud Practitioner" title="AWS Certified Cloud Practitioner">
+          <img src="https://d1.awsstatic.com/training-and-certification/Certification%20Badges/AWS-Certified-Cloud-Practitioner_badge.7d91b0b2c3b9b1a2c8cbbd7c26a903b41d1b7d08.png" alt="AWS Cloud Pract[...]
           <span class="skill-label" style="max-width:80px">Cloud Practitioner</span>
         </div>
       </div>
