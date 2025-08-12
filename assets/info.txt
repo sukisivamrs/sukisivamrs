@@ -1,0 +1,2 @@
+This folder contains all files and resources required for index.html.
+It includes images, stylesheets, scripts, files and other supporting assets necessary for the proper display and functionality of the webpage.
