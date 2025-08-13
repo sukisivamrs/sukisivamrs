@@ -161,7 +161,7 @@
       100% { transform: translateY(-20px);}
     }
     .droplet1 {
-      width: 150px; height: 150px;
+      width: 200px; height: 200px;
       left: 0; top: 40px;
       background: radial-gradient(circle at 60% 60%, var(--violet) 40%, transparent 80%);
       box-shadow: 0 0 60px 24px var(--violet);
@@ -169,7 +169,7 @@
       animation-delay: 0s;
     }
     .droplet2 {
-      width: 95px; height: 95px;
+      width: 145px; height: 145px;
       left: 120px; top: 0;
       background: radial-gradient(circle at 40% 40%, var(--pink) 45%, transparent 90%);
       box-shadow: 0 0 32px 8px var(--pink);
@@ -177,7 +177,7 @@
       animation-delay: .8s;
     }
     .droplet3 {
-      width: 70px; height: 70px;
+      width: 120px; height: 120px;
       left: 185px; top: 120px;
       background: radial-gradient(circle at 60% 60%, var(--violet) 60%, transparent 100%);
       box-shadow: 0 0 22px 8px var(--violet);
@@ -185,7 +185,7 @@
       animation-delay: 1.3s;
     }
     .droplet4 {
-      width: 36px; height: 36px;
+      width: 86px; height: 86px;
       left: 210px; top: 200px;
       background: radial-gradient(circle at 50% 50%, var(--pink) 75%, transparent 100%);
       box-shadow: 0 0 12px 3px var(--pink);
@@ -193,8 +193,8 @@
       animation-delay: 2s;
     }
     .profile-pic-main {
-      width: 150px;
-      height: 150px;
+      width: 200px;
+      height: 200px;
       object-fit: cover;
       border-radius: 50%;
       border: 4px solid var(--violet);
@@ -381,6 +381,10 @@
       text-shadow: none !important;
       filter: none !important;
       margin-bottom: 0.3em;
+      display: block;       /* makes <i> behave like an image */
+ 		  height: 7rem;         /* force same height for both */
+  		width: auto;
+  		line-height: 7rem;    /* centers font icons vertically */
       /* No drop shadow */
     }
     .skill-icon-block img {
@@ -541,7 +545,7 @@
     <div class="tab-content active" id="primary">
       <div class="skills-icons-row">
         <div class="skill-icon-block">
-          <i class="fa-brands fa-aws" style="color:white; font-size:75px;"></i>
+          <i class="fa-brands fa-aws" style="color:white; font-size:60px;"></i>
           <span class="skill-label">AWS</span>
         </div>
         <div class="skill-icon-block">
@@ -584,7 +588,7 @@
         </div>
         <div class="skill-icon-block">
           <!--	<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="white-icon" alt="GitHub" title="GitHub"> -->
-          <i class="fa-brands fa-github" style="color:white; font-size:75px;"></i>
+          <i class="fa-brands fa-github" style="color:white; font-size:100px;"></i>
           <span class="skill-label">GitHub</span>
         </div>
         <div class="skill-icon-block">
