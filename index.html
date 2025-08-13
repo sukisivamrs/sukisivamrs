@@ -146,6 +146,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
+  		left: -20px; /* move left, adjust value as needed */
     }
     .droplet {
       position: absolute;
@@ -195,7 +196,7 @@
     .profile-pic-main {
       width: 200px;
       height: 200px;
-      object-fit: cover;
+      object-fit: contain;
       border-radius: 50%;
       border: 4px solid var(--violet);
       box-shadow: 0 0 32px 10px var(--violet), 0 0 20px 6px var(--pink) inset;
@@ -588,7 +589,7 @@
         </div>
         <div class="skill-icon-block">
           <!--	<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="white-icon" alt="GitHub" title="GitHub"> -->
-          <i class="fa-brands fa-github" style="color:white; font-size:100px;"></i>
+          <i class="fa-brands fa-github" style="color:white; font-size:75px;"></i>
           <span class="skill-label">GitHub</span>
         </div>
         <div class="skill-icon-block">
@@ -611,12 +612,12 @@
         <div class="skill-icon-block">
           <a href="https://www.credly.com/badges/d21cdfac-510d-4d6a-8c5e-f8e1335131bb/linked_in_profile" target="_blank" rel="noopener noreferrer">
     			<img src="assets/aws-ssa.png" alt="AWS SAA" />
-    			<!--	<span class="skill-label" style="max-width:80px">AWS SAA</span>	-->
+    			<span class="skill-label" style="max-width:80px">AWS SAA</span>
         </div>
         <div class="skill-icon-block">
         	<a href="https://www.credly.com/badges/af426fb8-cee8-42d3-9de9-a2cbc7199ce4/linked_in_profile" target="_blank" rel="noopener noreferrer">
     			<img src="assets/aws-cp.png" alt="AWS CP" />
-    			<!--	<span class="skill-label" style="max-width:80px">Cloud Practitioner</span> -->
+    			<span class="skill-label" style="max-width:80px">Cloud Practitioner</span>
   			</a>
         </div>
       </div>
