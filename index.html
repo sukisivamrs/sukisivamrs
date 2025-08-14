@@ -48,6 +48,21 @@
       background: none;
       outline: none;
     }
+		.nav-left {
+  		flex: 1;
+		}
+		.nav-right {
+  		flex: 1;
+  		display: flex;
+  		justify-content: flex-end;
+  		gap: 2.5rem;
+		}
+	 .nav-name {
+  		font-size: 1.3rem;
+  		font-weight: bold;
+  		color: var(--violet);
+  		text-shadow: 0 0 10px var(--violet);
+		}
     nav a.active,
     nav a:focus {
       color: #fff;
@@ -87,6 +102,15 @@
       z-index: 2;
       min-width: 290px;
       max-width: 480px;
+    }
+    .home-quote {
+  		width: 100%;
+  		text-align: center;
+  		font-size: 1.3rem;
+  		font-style: italic;
+  		color: var(--white);
+  		text-shadow: 0 0 10px var(--pink);
+   		margin-bottom: 1rem;
     }
     .greeting {
       font-size: 1.2rem;
@@ -141,7 +165,7 @@
     }
     .profile-droplets {
       position: relative;
-      width: 280px;
+      width: 300px;
       height: 330px;
       display: flex;
       align-items: center;
@@ -162,8 +186,8 @@
       100% { transform: translateY(-20px);}
     }
     .droplet1 {
-      width: 200px; height: 200px;
-      left: 0; top: 60px;
+      width: 220px; height: 220px;
+      left: 0; top: 40px;
       background: radial-gradient(circle at 60% 60%, var(--violet) 40%, transparent 80%);
       box-shadow: 0 0 60px 24px var(--violet);
       z-index: 1;
@@ -171,7 +195,7 @@
     }
     .droplet2 {
       width: 145px; height: 145px;
-      left: 140px; top: 0;
+      left: 130px; top: 0;
       background: radial-gradient(circle at 40% 40%, var(--pink) 45%, transparent 90%);
       box-shadow: 0 0 32px 8px var(--pink);
       z-index: 1;
@@ -179,7 +203,7 @@
     }
     .droplet3 {
       width: 120px; height: 120px;
-      left: 200px; top: 140px;
+      left: 180px; top: 120px;
       background: radial-gradient(circle at 60% 60%, var(--violet) 60%, transparent 100%);
       box-shadow: 0 0 22px 8px var(--violet);
       z-index: 1;
@@ -187,15 +211,15 @@
     }
     .droplet4 {
       width: 86px; height: 86px;
-      left: 230px; top: 220px;
+      left: 220px; top: 210px;
       background: radial-gradient(circle at 50% 50%, var(--pink) 75%, transparent 100%);
       box-shadow: 0 0 12px 3px var(--pink);
       z-index: 1;
       animation-delay: 2s;
     }
     .profile-pic-main {
-      width: 230px;
-      height: 245px;
+      width: 235px;
+      height: 250px;
       object-fit: cover;
       object-position: center top; /* shifts image upward to show more head */
       border-radius: 50%;
@@ -451,14 +475,21 @@
 <body>
   <!-- NAVIGATION -->
   <nav id="main-nav">
+  <div class="nav-left">
+    <span class="nav-name">Suki Sivam</span>
+  </div>
+  
+  <div class="nav-right">
     <a href="#home" class="active">Home</a>
     <a href="#about" id="about-link">About Me</a>
     <a href="#skillset">Skillset</a>
     <a href="#contact">Contact</a>
+  </div>
   </nav>
 
   <!-- HOME SECTION -->
   <section class="home-section" id="home">
+  	<div class="home-quote">"Do not follow where the path may lead. Go instead where there is no path and leave a trail."</div>
     <div class="home-left">
       <div class="greeting">👋 Yo!</div>
       <div class="home-name">Suki Sivam R S</div>
@@ -595,8 +626,23 @@
         </div>
         <div class="skill-icon-block">
           <!--	<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="white-icon" alt="GitHub" title="GitHub"> -->
-          <i class="fa-brands fa-github  fa-2xl" style="color:white;"></i>
+          <i class="fa-brands fa-github  fa-3xl" style="color:white;"></i>
           <span class="skill-label">GitHubb</span>
+        </div>
+        <div class="skill-icon-block">
+          <!--	<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="white-icon" alt="GitHub" title="GitHub"> -->
+          <i class="fa-brands fa-github  fa-5x" style="color:white;"></i>
+          <span class="skill-label">GitHub</span>
+        </div>
+        <div class="skill-icon-block">
+          <!--	<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="white-icon" alt="GitHub" title="GitHub"> -->
+          <i class="fa-brands fa-github  fa-6x" style="color:white;"></i>
+          <span class="skill-label">GitHub6</span>
+        </div>
+        <div class="skill-icon-block">
+          <!--	<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="white-icon" alt="GitHub" title="GitHub"> -->
+          <i class="fa-brands fa-github  fa-7x" style="color:white;"></i>
+          <span class="skill-label">GitHub7</span>
         </div>
         <div class="skill-icon-block">
           <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/maven/maven-original.svg" alt="Maven" title="Maven">
