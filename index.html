@@ -25,6 +25,11 @@
       background: var(--dark-bg);
       color: var(--text-white);
     }
+	header {
+  	  position: sticky;
+  	  top: 0;
+  	  z-index: 1000;
+	}
     nav {
       display: flex;
       justify-content: flex-end;
@@ -480,6 +485,7 @@
   </style>
 </head>
 <body>
+  <header>
   <!-- NAVIGATION -->
   <nav id="main-nav">
   <!--
@@ -494,7 +500,7 @@
     <a href="#contact">Contact</a>
   </div>
   </nav>
-
+  </header>
   <!-- HOME SECTION -->
   <section class="home-section" id="home">
   	<div class="home-quote">"Do not follow where the path may lead. Go instead where there is no path and leave a trail."</div>
