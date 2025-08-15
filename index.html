@@ -115,7 +115,7 @@
    		/* margin-bottom: 1rem; */
     }
     .greeting {
-      font-size: 1.2rem;
+      font-size: 1.5rem;
       color: var(--white);
       margin-bottom: 0.7em;
       text-shadow: 0 0 8px var(--white);
@@ -418,8 +418,12 @@
     .skill-icon-block img {
       width: 7rem; height: 7rem; object-fit: contain;
       mix-blend-mode: lighten;
-	  border-radius: 50%;    /* makes the image round */
     }
+	.skill-icon-circle {
+      width: 7rem; height: 7rem; object-fit: contain;
+      mix-blend-mode: lighten;
+	  border-radius: 50%;    /* makes the image round */
+	} 
     .skill-label {
       font-size: 0.98em;
       color: var(--text-white);
@@ -601,18 +605,10 @@
           <i class="fa-brands fa-aws" style="color:white; font-size:60px;"></i>
           <span class="skill-label">AWS</span>
         </div>
-        <div class="skill-icon-block">
-          <img src="assets/devops.svg" alt="devops" title="devops">
-          <span class="skill-label">DevOps</span>
-        </div>
 		<div class="skill-icon-block">
-          <img src="assets/devops_lb.jpg" alt="devops" title="devops">
+          <img class="skill-icon-circle" src="assets/devops_lb.jpg" alt="devops" title="devops">
           <span class="skill-label">DevOps</span>
 		</div>
-		<div class="skill-icon-block">
-          <img src="assets/devops_dbg.jpg" alt="devops" title="devops">
-          <span class="skill-label">DevOps</span>
-        </div>
         <div class="skill-icon-block">
           <img src="assets/jenkins.svg" alt="jenkins" title="jenkins">
           <span class="skill-label">Jenkins</span>
