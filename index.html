@@ -471,6 +471,10 @@
       .projects-split { flex-direction: column; gap: 1.5rem; }
       .about-buttons-row, .tabs, .action-buttons-row { gap: 0.7rem; }
     }
+	@media(min-width:700px) and (max-width:860px){
+	  .projects-split { display: flex; gap: 2.5rem; flex-wrap: wrap; justify-content: center; }
+  	  .project-pane { flex: 1 1 340px; background: transparent; border-radius: 10px; border-left: 4px solid var(--violet); padding: 1.1rem 1.2rem 1.1rem 1.6rem; margin-bottom: 1.5rem; min-width: 280px; max-width: 440px; display: flex; flex-direction: column; gap: 1.1rem; box-shadow: none; }
+	}
     @media (max-width: 600px) {
       .home-name { font-size: 1.35rem; }
 	@media(max-width:430px){
@@ -628,7 +632,7 @@
           <span class="skill-label">DevOps</span>
 		</div>
         <div class="skill-icon-block">
-          <img src="assets/jenkins.svg" alt="jenkins" title="jenkins">
+          <img src="assets/jenkins-off.png" alt="jenkins" title="jenkins">
           <span class="skill-label">Jenkins</span>
         </div>
         <div class="skill-icon-block">
