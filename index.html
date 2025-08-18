@@ -481,12 +481,13 @@
 	  */
 	  
 	  body, .container, .main-wrapper { padding:0; margin:0 auto; }
-      .home-left, .home-right { align-items: center; justify-content: center; }
 	  .home-section { flex-direction: column; text-align: center; }
-  	  .home-left, .home-right { align-items: center; justify-content: center; }
-	  .nav-right{gap:.8rem;padding:.4rem .3rem}
-	  .projects-split{display:block;}
-	  .project-pane{width:100%;max-width:90%;margin:0 0 1rem 0; padding-right:0; }
+  	  .home-left { align-items: center; justify-content: center; }
+	  .home-right {display:flex;justify-content:center;}
+      .profile-droplets {margin:0 auto;position:relative;left:0;transform:translateX(0);}
+	  .nav-right {gap:.7rem;padding:.3rem .1rem}
+	  .projects-split {display:block;}
+	  .project-pane {width:100%;max-width:90%;margin:0 0 2rem 0; padding-right:0; }
 	}
 	
     @media (max-width: 600px) {
